@@ -1,0 +1,40 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-3);
+  padding: var(--space-12) var(--space-6);
+  color: var(--text-secondary);
+}
+.icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-full);
+  background: var(--color-neutral-100);
+  color: var(--text-muted);
+}
+.icon.danger {
+  background: var(--color-danger-bg);
+  color: var(--color-danger-solid);
+}
+.icon.warning {
+  background: var(--color-warning-bg);
+  color: var(--color-warning-solid);
+}
+.title {
+  margin: 0;
+  font-size: var(--font-size-lg);
+  color: var(--text-primary);
+}
+.description {
+  margin: 0;
+  max-width: 44ch;
+  font-size: var(--font-size-sm);
+}
+.action {
+  margin-top: var(--space-2);
+}

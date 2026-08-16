@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: builderslab
+    runtime: node
+    region: oregon
+    plan: free
+    rootDir: server
+    buildCommand: npm install && cd ../client && npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: JWT_SECRET
+        generateValue: true
+      - key: AI_CREDENTIALS_KEY
+        generateValue: true
+      - key: COOKIE_SECURE
+        value: "true"
+      - key: PAYSTACK_SECRET_KEY
+        sync: false
+      - key: REGISTRATION_FEE_GHS
+        value: "350"
+      - key: MONTHLY_FEE_GHS
+        value: "180"

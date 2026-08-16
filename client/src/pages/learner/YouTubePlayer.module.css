@@ -1,0 +1,80 @@
+.shell {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--color-primary-900);
+}
+
+.frameWrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #000;
+}
+.frame {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Sits directly on top of the iframe, capturing every click before it can
+   reach YouTube's own (hidden but still present) UI — see YouTubePlayer.jsx
+   for why. cursor:pointer signals it's still clickable to toggle play. */
+.clickShield {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  cursor: pointer;
+  background: transparent;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  text-align: center;
+  color: rgba(255, 255, 255, 0.85);
+  background: rgba(0, 0, 0, 0.55);
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  background: var(--color-primary-800);
+}
+
+.seek {
+  flex: 1;
+  height: 6px;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.2);
+  overflow: hidden;
+}
+.watched {
+  height: 100%;
+  background: var(--color-secondary-400);
+  transition: width var(--duration-fast) linear;
+}
+
+.timeLabel {
+  flex: none;
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.lockNote {
+  margin: 0;
+  padding: var(--space-3) var(--space-4);
+  font-size: var(--font-size-xs);
+  color: rgba(255, 255, 255, 0.7);
+  background: var(--color-primary-900);
+}

@@ -1,0 +1,42 @@
+{
+  "name": "builderslab-server",
+  "version": "1.0.0",
+  "description": "The Builders' Lab (Dalijay Tech Hub) — production API server",
+  "main": "src/server.js",
+  "type": "commonjs",
+  "scripts": {
+    "migrate": "node src/db/migrate.js",
+    "seed:admin": "node src/db/seedAdmin.js",
+    "seed:demo": "node src/db/seedDemo.js",
+    "reset:known-passwords": "node src/db/resetKnownPasswords.js",
+    "rotate:ai-key": "node src/db/rotateAiCredentialsKey.js",
+    "backup:db": "node src/db/backup.js",
+    "backup:uploads": "node src/db/backupUploads.js",
+    "backup": "npm run backup:db && npm run backup:uploads",
+    "start": "node src/server.js",
+    "verify:deploy": "node scripts/verify-deploy.js",
+    "dev": "nodemon src/server.js",
+    "test": "node --test test/*.test.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "better-sqlite3": "^9.6.0",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "express-rate-limit": "^7.4.0",
+    "helmet": "^7.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "multer": "^1.4.5-lts.1",
+    "node-fetch": "^2.7.0",
+    "uuid": "^9.0.1",
+    "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

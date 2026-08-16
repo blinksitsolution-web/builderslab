@@ -1,0 +1,1 @@
+const t="_shell_62xwj_1",s="_list_62xwj_12",_="_contact_62xwj_20",e="_active_62xwj_39",o="_subtitle_62xwj_44",c="_body_62xwj_49",n="_messages_62xwj_55",l="_bubble_62xwj_65",b="_me_62xwj_55",w="_them_62xwj_78",i="_inputRow_62xwj_82",x={shell:t,list:s,contact:_,active:e,subtitle:o,body:c,messages:n,bubble:l,me:b,them:w,inputRow:i};export{x as s};

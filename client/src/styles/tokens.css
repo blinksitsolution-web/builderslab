@@ -1,0 +1,206 @@
+/* ==========================================================================
+   THE BUILDERS' LAB — React design system: design tokens
+   ==========================================================================
+   Every visual value used by shared components and future portals should
+   come from a token here — nothing scattered inline. This extends (rather
+   than reinvents) the legacy brand identity documented in the root
+   style.css ("Blueprint & Copper": deep navy + copper + teal on a warm
+   paper surface) into a full, systematic scale suitable for a real
+   component library: colour ramps instead of single flat swatches,
+   semantic tokens for state, a type scale, spacing scale, elevation scale,
+   and motion tokens.
+
+   Font strategy: system font stacks only — no @font-face / webfont
+   network request. This keeps the "premium editorial" feel (a serif
+   display face for headings, a humanist sans for body/UI) without
+   introducing render-blocking asset loads, per Phase 3 scope.
+   ========================================================================== */
+
+:root {
+  /* ---- Brand colour ramps -------------------------------------------- */
+  /* Primary — Navy (authority, trust, "institutional" education feel) */
+  --color-primary-50: #EEF1F8;
+  --color-primary-100: #D7DEEF;
+  --color-primary-200: #AEBEDE;
+  --color-primary-300: #7E97C4;
+  --color-primary-400: #4C6BA0;
+  --color-primary-500: #29447A;
+  --color-primary-600: #1D2E58;
+  --color-primary-700: #15254A;
+  --color-primary-800: #101D3B;
+  --color-primary-900: #0E1830;
+
+  /* Secondary — Copper (warmth, craft, the legacy brand accent) */
+  --color-secondary-50: #FDF3EA;
+  --color-secondary-100: #FBE2C9;
+  --color-secondary-200: #F5C48D;
+  --color-secondary-300: #EEA35A;
+  --color-secondary-400: #E2812A;
+  --color-secondary-500: #C96E1E;
+  --color-secondary-600: #B9611A;
+  --color-secondary-700: #954C14;
+  --color-secondary-800: #713A10;
+  --color-secondary-900: #4E280B;
+
+  /* Tertiary accent — Teal (used sparingly: links, info, focus rings) */
+  --color-accent-100: #D3F3EE;
+  --color-accent-300: #6FD8C7;
+  --color-accent-500: #20B7A0;
+  --color-accent-700: #158972;
+
+  /* Neutrals — warm-tinted grays (paper, not clinical white/gray) */
+  --color-neutral-0: #FFFFFF;
+  --color-neutral-25: #FBFAF7;
+  --color-neutral-50: #F5F3EC;
+  --color-neutral-100: #EAE7DC;
+  --color-neutral-200: #DDD8C8;
+  --color-neutral-300: #C9C3AF;
+  --color-neutral-400: #A69F8A;
+  --color-neutral-500: #837C68;
+  --color-neutral-600: #635D4E;
+  --color-neutral-700: #4A4738;
+  --color-neutral-800: #322F26;
+  --color-neutral-900: #1C1A15;
+
+  /* ---- Semantic colours (state) — each with bg / border / text / solid */
+  --color-success-bg: #E7F6EE;
+  --color-success-border: #A9DEBF;
+  --color-success-text: #1D6E43;
+  --color-success-solid: #2FA76B;
+
+  --color-warning-bg: #FDF3E2;
+  --color-warning-border: #F1CE8C;
+  --color-warning-text: #8A5A0B;
+  --color-warning-solid: #D99A2B;
+
+  --color-danger-bg: #FBEAEA;
+  --color-danger-border: #EFB7B7;
+  --color-danger-text: #A62E2E;
+  --color-danger-solid: #D64545;
+
+  --color-info-bg: #E7F6F4;
+  --color-info-border: #A6E1D6;
+  --color-info-text: #106A5A;
+  --color-info-solid: #20B7A0;
+
+  /* ---- Surface / text roles (semantic aliases — components consume these,
+     not the raw ramps, so a future theme/dark-mode swap only touches
+     this block) ------------------------------------------------------- */
+  --surface-page: var(--color-neutral-50);
+  --surface-raised: var(--color-neutral-0);
+  --surface-sunken: var(--color-neutral-100);
+  --surface-inverse: var(--color-primary-800);
+  --surface-overlay: rgba(16, 27, 51, 0.48);
+
+  --text-primary: var(--color-neutral-900);
+  --text-secondary: var(--color-neutral-600);
+  --text-muted: var(--color-neutral-500);
+  --text-on-primary: var(--color-neutral-0);
+  --text-on-secondary: var(--color-neutral-0);
+  --text-link: var(--color-primary-500);
+
+  --border-default: var(--color-neutral-300);
+  --border-subtle: var(--color-neutral-200);
+  --border-strong: var(--color-neutral-400);
+  --border-focus: var(--color-accent-500);
+
+  --color-brand-primary: var(--color-primary-600);
+  --color-brand-secondary: var(--color-secondary-400);
+
+  /* ---- Typography ------------------------------------------------------ */
+  --font-display: Georgia, "Iowan Old Style", "Palatino Linotype", "URW Palladio L", serif;
+  --font-body: -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, "Liberation Mono", monospace;
+
+  --font-size-xs: 0.75rem; /* 12px — captions, table meta */
+  --font-size-sm: 0.8125rem; /* 13px — labels, helper text */
+  --font-size-base: 0.9375rem; /* 15px — body */
+  --font-size-md: 1rem; /* 16px — form controls */
+  --font-size-lg: 1.125rem; /* 18px — lead text */
+  --font-size-xl: 1.375rem; /* 22px — card/section titles */
+  --font-size-2xl: 1.75rem; /* 28px — page titles */
+  --font-size-3xl: 2.25rem; /* 36px — hero headings, mobile */
+  --font-size-4xl: 2.75rem; /* 44px — hero headings, desktop */
+
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  --line-height-tight: 1.2;
+  --line-height-snug: 1.35;
+  --line-height-normal: 1.55;
+  --line-height-relaxed: 1.7;
+
+  --letter-spacing-tight: -0.01em;
+  --letter-spacing-wide: 0.04em;
+  --letter-spacing-widest: 0.08em;
+
+  /* ---- Spacing (4px base unit) ----------------------------------------- */
+  --space-0: 0;
+  --space-1: 0.25rem; /* 4 */
+  --space-2: 0.5rem; /* 8 */
+  --space-3: 0.75rem; /* 12 */
+  --space-4: 1rem; /* 16 */
+  --space-5: 1.25rem; /* 20 */
+  --space-6: 1.5rem; /* 24 */
+  --space-8: 2rem; /* 32 */
+  --space-10: 2.5rem; /* 40 */
+  --space-12: 3rem; /* 48 */
+  --space-16: 4rem; /* 64 */
+  --space-20: 5rem; /* 80 */
+  --space-24: 6rem; /* 96 */
+
+  /* ---- Radii ------------------------------------------------------------ */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 999px;
+
+  /* ---- Shadows (ink-tinted, matching legacy --shadow direction) --------- */
+  --shadow-xs: 0 1px 2px rgba(16, 27, 51, 0.06);
+  --shadow-sm: 0 2px 8px rgba(16, 27, 51, 0.08);
+  --shadow-md: 0 8px 24px rgba(16, 27, 51, 0.12);
+  --shadow-lg: 0 16px 40px rgba(16, 27, 51, 0.16);
+  --shadow-xl: 0 24px 64px rgba(16, 27, 51, 0.22);
+  --shadow-focus: 0 0 0 3px rgba(32, 183, 160, 0.35);
+
+  /* ---- Borders ----------------------------------------------------------- */
+  --border-width-thin: 1px;
+  --border-width-thick: 2px;
+
+  /* ---- Breakpoints (reference only — also mirrored in
+     src/lib/breakpoints.js for JS/media-query hooks; CSS custom
+     properties cannot be interpolated into @media conditions) ---------- */
+  --bp-sm: 480px;
+  --bp-md: 768px;
+  --bp-lg: 1024px;
+  --bp-xl: 1280px;
+
+  /* ---- Z-index layers ----------------------------------------------------- */
+  --z-dropdown: 200;
+  --z-sticky: 300;
+  --z-drawer: 400;
+  --z-modal-backdrop: 500;
+  --z-modal: 510;
+  --z-toast: 600;
+  --z-tooltip: 700;
+
+  /* ---- Motion -------------------------------------------------------------- */
+  --duration-instant: 80ms;
+  --duration-fast: 140ms;
+  --duration-base: 220ms;
+  --duration-slow: 360ms;
+
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-decelerate: cubic-bezier(0, 0, 0.2, 1);
+  --ease-accelerate: cubic-bezier(0.4, 0, 1, 1);
+
+  /* ---- Layout ------------------------------------------------------------- */
+  --sidebar-width: 264px;
+  --sidebar-width-collapsed: 76px;
+  --topbar-height: 64px;
+  --content-max-width: 1280px;
+  --touch-target-min: 44px;
+}

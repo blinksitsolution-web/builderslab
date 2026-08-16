@@ -1,0 +1,131 @@
+.nav {
+  min-height: 0; /* lets the sidebar's scroll container size this correctly */
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  min-height: var(--touch-target-min);
+  padding: 0 var(--space-3);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  transition: background-color var(--duration-fast) var(--ease-standard), color var(--duration-fast) var(--ease-standard);
+}
+
+.icon {
+  flex: none;
+  opacity: 0.85;
+}
+
+.label {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.dark {
+  color: rgba(255, 255, 255, 0.75);
+}
+.dark:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-on-primary);
+  text-decoration: none;
+}
+.dark.active {
+  background: rgba(255, 255, 255, 0.14);
+  color: var(--text-on-primary);
+  font-weight: var(--font-weight-semibold);
+  box-shadow: inset 3px 0 0 var(--color-secondary-400);
+}
+
+.light {
+  color: var(--text-secondary);
+}
+.light:hover {
+  background: var(--color-neutral-100);
+  color: var(--color-primary-700);
+  text-decoration: none;
+}
+.light.active {
+  background: var(--color-primary-50);
+  color: var(--color-primary-700);
+  font-weight: var(--font-weight-semibold);
+  box-shadow: inset 3px 0 0 var(--color-secondary-400);
+}
+
+/* ---- Collapsible groups (Admin nav) ---------------------------------- */
+.group {
+  display: flex;
+  flex-direction: column;
+}
+
+.groupHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  width: 100%;
+  min-height: var(--touch-target-min);
+  padding: 0 var(--space-3);
+  border: none;
+  background: none;
+  border-radius: var(--radius-md);
+  font: inherit;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  text-align: left;
+  transition: background-color var(--duration-fast) var(--ease-standard), color var(--duration-fast) var(--ease-standard);
+}
+.groupHeader.dark:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-on-primary);
+}
+.groupHeader.light:hover {
+  background: var(--color-neutral-100);
+  color: var(--color-primary-700);
+}
+
+.chevron {
+  flex: none;
+  transition: transform var(--duration-fast) var(--ease-standard);
+}
+.chevronOpen {
+  transform: rotate(180deg);
+}
+
+.groupBody {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows var(--duration-base) var(--ease-standard);
+  overflow: hidden;
+}
+.groupBodyOpen {
+  grid-template-rows: 1fr;
+}
+
+.sublist {
+  list-style: none;
+  margin: 0;
+  padding: var(--space-1) 0 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  min-height: 0;
+  overflow: hidden;
+}
+.sublist .item {
+  padding-left: calc(var(--space-3) + 18px + var(--space-3)); /* aligns sub-item labels with parent icons */
+}

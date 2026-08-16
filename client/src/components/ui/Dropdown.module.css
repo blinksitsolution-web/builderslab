@@ -1,0 +1,53 @@
+.root {
+  position: relative;
+  display: inline-block;
+}
+.trigger {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: inherit;
+}
+
+.menu {
+  position: absolute;
+  top: calc(100% + var(--space-2));
+  min-width: 180px;
+  background: var(--surface-raised);
+  border: var(--border-width-thin) solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  padding: var(--space-1);
+  z-index: var(--z-dropdown);
+  animation: scale-in var(--duration-fast) var(--ease-decelerate) both;
+}
+.start {
+  left: 0;
+}
+.end {
+  right: 0;
+}
+
+.item {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: var(--space-2) var(--space-3);
+  font-size: var(--font-size-sm);
+  color: var(--text-primary);
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+}
+.item:hover:not(:disabled),
+.item:focus-visible {
+  background: var(--color-neutral-100);
+}
+.item:disabled {
+  color: var(--text-muted);
+  cursor: not-allowed;
+}
+.danger {
+  color: var(--color-danger-text);
+}

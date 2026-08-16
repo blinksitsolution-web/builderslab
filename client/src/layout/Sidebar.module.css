@@ -1,0 +1,80 @@
+.sidebar {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+    width: var(--sidebar-width);
+    flex: none;
+    background: linear-gradient(190deg, var(--color-primary-800), var(--color-primary-700));
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    overflow: hidden; /* only .navScroll below scrolls internally */
+  }
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-5) var(--space-5) 0 var(--space-5);
+  flex: none;
+  text-decoration: none;
+  border-radius: var(--radius-md);
+  transition: opacity var(--duration-fast) var(--ease-standard);
+}
+.brand:hover {
+  opacity: 0.85;
+  text-decoration: none;
+}
+.mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-md);
+  background: var(--color-secondary-400);
+  color: var(--color-primary-900);
+  font-family: var(--font-display);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-sm);
+}
+.wordmark {
+  font-family: var(--font-display);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-on-primary);
+  font-size: var(--font-size-base);
+}
+
+/* Scrollable nav area — grows to fill whatever space is left below the
+   brand and scrolls internally once its content (e.g. the grouped Admin
+   nav, all expanded) exceeds the viewport height. */
+.navScroll {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding: var(--space-6) var(--space-5) var(--space-5) var(--space-5);
+
+  /* The global thin-scrollbar rule (styles/base.css) is tuned for the
+     light "paper/ink" palette and would be nearly invisible against this
+     dark gradient, so it's overridden here specifically. */
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.25) transparent;
+}
+.navScroll::-webkit-scrollbar {
+  width: 8px;
+}
+.navScroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+.navScroll::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.25);
+  border-radius: 999px;
+}
+.navScroll::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+}

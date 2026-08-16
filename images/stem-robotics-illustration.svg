@@ -1,0 +1,105 @@
+<svg viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustration of two children building a robot together">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#101D3B"/>
+      <stop offset="100%" stop-color="#15254A"/>
+    </linearGradient>
+    <linearGradient id="table" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#7E97C4"/>
+      <stop offset="100%" stop-color="#4C6BA0"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="600" height="520" rx="24" fill="url(#bg)"/>
+
+  <!-- soft glow circle -->
+  <circle cx="300" cy="200" r="190" fill="#FBE2C9" opacity="0.06"/>
+
+  <!-- floating gear accents -->
+  <g fill="#E2812A" opacity="0.35">
+    <circle cx="80" cy="90" r="18"/>
+    <circle cx="520" cy="70" r="12"/>
+    <circle cx="540" cy="430" r="16"/>
+  </g>
+
+  <!-- workbench -->
+  <rect x="60" y="360" width="480" height="26" rx="8" fill="url(#table)"/>
+  <rect x="90" y="386" width="18" height="70" fill="#29447A"/>
+  <rect x="492" y="386" width="18" height="70" fill="#29447A"/>
+
+  <!-- robot on the table -->
+  <g transform="translate(255,255)">
+    <rect x="-55" y="10" width="110" height="90" rx="14" fill="#F5C48D"/>
+    <rect x="-40" y="-55" width="80" height="70" rx="16" fill="#F9D9A8"/>
+    <circle cx="-16" cy="-22" r="9" fill="#101D3B"/>
+    <circle cx="16" cy="-22" r="9" fill="#101D3B"/>
+    <rect x="-14" y="0" width="28" height="6" rx="3" fill="#B9611A"/>
+    <rect x="-4" y="-78" width="8" height="24" fill="#EEA35A"/>
+    <circle cx="0" cy="-84" r="9" fill="#E2812A"/>
+    <!-- arms -->
+    <rect x="-78" y="20" width="24" height="10" rx="5" fill="#EEA35A"/>
+    <rect x="54" y="20" width="24" height="10" rx="5" fill="#EEA35A"/>
+    <!-- wheels -->
+    <circle cx="-32" cy="102" r="14" fill="#0E1830"/>
+    <circle cx="32" cy="102" r="14" fill="#0E1830"/>
+    <!-- chest panel lights -->
+    <circle cx="-14" cy="40" r="5" fill="#E2812A"/>
+    <circle cx="14" cy="40" r="5" fill="#F5C48D"/>
+    <circle cx="0" cy="55" r="5" fill="#E2812A"/>
+  </g>
+
+  <!-- circuit board on table -->
+  <g transform="translate(140,345)">
+    <rect x="-40" y="-14" width="80" height="30" rx="4" fill="#15254A" stroke="#E2812A" stroke-width="2"/>
+    <circle cx="-24" cy="0" r="3" fill="#EEA35A"/>
+    <circle cx="-8" cy="0" r="3" fill="#EEA35A"/>
+    <circle cx="8" cy="0" r="3" fill="#EEA35A"/>
+    <circle cx="24" cy="0" r="3" fill="#EEA35A"/>
+  </g>
+
+  <!-- child 1: seated, working on the robot's arm -->
+  <g transform="translate(150,330)">
+    <ellipse cx="0" cy="150" rx="52" ry="10" fill="#0E1830" opacity="0.3"/>
+    <!-- legs -->
+    <rect x="-32" y="70" width="20" height="60" rx="8" fill="#29447A"/>
+    <rect x="12" y="70" width="20" height="60" rx="8" fill="#29447A"/>
+    <!-- torso -->
+    <rect x="-38" y="10" width="76" height="70" rx="20" fill="#E2812A"/>
+    <!-- arm reaching to robot -->
+    <rect x="30" y="30" width="55" height="16" rx="8" fill="#8C5A2B" transform="rotate(-18 30 30)"/>
+    <!-- head -->
+    <circle cx="0" cy="-22" r="34" fill="#8C5A2B"/>
+    <path d="M -34 -30 Q 0 -66 34 -30 Q 34 -50 0 -54 Q -34 -50 -34 -30 Z" fill="#0E1830"/>
+    <circle cx="-11" cy="-22" r="3.5" fill="#101D3B"/>
+    <circle cx="11" cy="-22" r="3.5" fill="#101D3B"/>
+    <path d="M -8 -6 Q 0 0 8 -6" stroke="#101D3B" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  </g>
+
+  <!-- child 2: standing, holding a screwdriver up -->
+  <g transform="translate(400,320)">
+    <ellipse cx="0" cy="160" rx="52" ry="10" fill="#0E1830" opacity="0.3"/>
+    <!-- legs -->
+    <rect x="-30" y="80" width="20" height="70" rx="8" fill="#15254A"/>
+    <rect x="10" y="80" width="20" height="70" rx="8" fill="#15254A"/>
+    <!-- torso -->
+    <rect x="-38" y="10" width="76" height="76" rx="20" fill="#F5C48D"/>
+    <!-- raised arm with tool -->
+    <rect x="-58" y="-30" width="16" height="60" rx="8" fill="#6E4423" transform="rotate(24 -58 -30)"/>
+    <rect x="-78" y="-56" width="34" height="8" rx="4" fill="#B9611A" transform="rotate(24 -78 -56)"/>
+    <!-- other arm -->
+    <rect x="34" y="20" width="46" height="16" rx="8" fill="#6E4423" transform="rotate(14 34 20)"/>
+    <!-- head -->
+    <circle cx="0" cy="-24" r="34" fill="#6E4423"/>
+    <path d="M -34 -20 Q -40 -60 0 -60 Q 40 -60 34 -20 Q 20 -46 0 -46 Q -20 -46 -34 -20 Z" fill="#0E1830"/>
+    <circle cx="-11" cy="-22" r="3.5" fill="#101D3B"/>
+    <circle cx="11" cy="-22" r="3.5" fill="#101D3B"/>
+    <path d="M -8 -6 Q 0 1 8 -6" stroke="#101D3B" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  </g>
+
+  <!-- small bulb of an idea -->
+  <g transform="translate(300,60)" opacity="0.9">
+    <circle cx="0" cy="0" r="20" fill="#F5C48D"/>
+    <rect x="-7" y="16" width="14" height="10" rx="3" fill="#B9611A"/>
+    <path d="M -14 -8 L -22 -16 M 14 -8 L 22 -16 M 0 -22 L 0 -32" stroke="#EEA35A" stroke-width="3" stroke-linecap="round"/>
+  </g>
+</svg>

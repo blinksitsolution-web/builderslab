@@ -1,0 +1,99 @@
+.transcript {
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+.brandRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-1);
+}
+
+.logo {
+  width: 52px;
+  height: 52px;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+}
+
+.tag {
+  font-family: var(--font-mono, monospace);
+  font-size: var(--font-size-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+}
+
+.metaRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  justify-content: center;
+  font-size: var(--font-size-sm);
+  color: var(--text-muted);
+  margin-bottom: var(--space-4);
+}
+
+.footerRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: var(--space-5);
+}
+
+.signatureImg {
+  height: 44px;
+}
+
+.signatureLine {
+  height: 44px;
+  border-bottom: 1px solid var(--border-strong, var(--border-subtle));
+  width: 180px;
+}
+
+.stars {
+  font-size: var(--font-size-lg);
+  color: var(--border-subtle);
+  letter-spacing: 2px;
+}
+
+.stars .filled {
+  color: var(--color-warning-500, #d97706);
+}
+
+.summary {
+  margin-top: var(--space-4);
+  padding: var(--space-4);
+  border: var(--border-width-thin) solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  background: var(--surface-sunken);
+}
+
+.summaryTitle {
+  margin: 0 0 var(--space-3);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wide);
+  color: var(--text-muted);
+}
+
+.summaryItem {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.summaryValue {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+}
+
+@media print {
+  .transcript {
+    box-shadow: none;
+    border: none;
+  }
+}

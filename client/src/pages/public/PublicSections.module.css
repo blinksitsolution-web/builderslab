@@ -1,0 +1,278 @@
+/* ---- Scroll-triggered reveal (paired with Reveal.jsx) -------------------
+   Opacity + transform only — cheap, GPU-friendly, and collapsed to instant
+   under prefers-reduced-motion by styles/motion.css's global override. */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity var(--duration-slow) var(--ease-decelerate), transform var(--duration-slow) var(--ease-decelerate);
+}
+.revealVisible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---- Hover motion for card grids (Offerings/Modules/Campuses/Stories/News) */
+.hoverLift {
+  transition: transform var(--duration-base) var(--ease-standard), box-shadow var(--duration-base) var(--ease-standard), border-color var(--duration-base) var(--ease-standard);
+}
+.hoverLift:hover,
+.hoverLift:focus-within {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-secondary-300);
+}
+
+.container {
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-4);
+}
+@media (min-width: 768px) {
+  .container {
+    padding: 0 var(--space-6);
+  }
+}
+
+.section {
+  padding: var(--space-16) 0;
+}
+.sectionAlt {
+  background: var(--surface-sunken);
+}
+
+.sectionHead {
+  text-align: center;
+  max-width: 60ch;
+  margin: 0 auto var(--space-10);
+}
+.eyebrow {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-secondary-600);
+  letter-spacing: var(--letter-spacing-wide);
+  margin-bottom: var(--space-2);
+  position: relative;
+}
+/* A small copper rule that draws itself in under the eyebrow the moment
+   the section head reveals — a quiet signature echoed at the top of every
+   section, rather than a generic fade. */
+.eyebrow::after {
+  content: "";
+  display: block;
+  width: 28px;
+  height: 2px;
+  margin: var(--space-2) auto 0;
+  background: var(--color-secondary-400);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform var(--duration-slow) var(--ease-decelerate) var(--duration-fast);
+}
+.sectionHead > .eyebrow {
+  margin-left: auto;
+  margin-right: auto;
+}
+.revealVisible .eyebrow::after {
+  transform: scaleX(1);
+}
+.sectionTitle {
+  margin-bottom: var(--space-2);
+}
+.sectionDescription {
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.statStrip {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-6);
+  padding: var(--space-8) 0;
+  background: var(--color-primary-800);
+  color: var(--text-on-primary);
+}
+@media (min-width: 768px) {
+  .statStrip {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+.statCell {
+  text-align: center;
+  transition: transform var(--duration-base) var(--ease-standard);
+}
+.statCell:hover {
+  transform: translateY(-3px);
+}
+.statCell b {
+  display: block;
+  font-family: var(--font-display);
+  font-size: var(--font-size-xl);
+  color: var(--color-secondary-300);
+}
+.statCell span {
+  font-size: var(--font-size-sm);
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.galleryGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-4);
+}
+@media (min-width: 768px) {
+  .galleryGrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+.galleryFigure {
+  margin: 0;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--duration-base) var(--ease-standard);
+}
+.galleryFigure:hover {
+  box-shadow: var(--shadow-md);
+}
+.galleryFigure img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  transition: transform var(--duration-slow) var(--ease-standard);
+}
+.galleryFigure:hover img {
+  transform: scale(1.08);
+}
+.galleryCaption {
+  padding: var(--space-2) var(--space-3);
+  font-size: var(--font-size-xs);
+  color: var(--text-muted);
+}
+
+/* ---- How It Works steps — numbered marker grows/recolors on hover.
+   No standalone `transition` here on purpose: this class is combined
+   directly onto the same <li> as .reveal (see PathwaySection.jsx), and
+   .reveal already transitions `transform` for its scroll-in, which the
+   hover translateX below rides along on. */
+.pathwayStep:hover {
+  transform: translateX(4px);
+}
+.pathwayStepNum {
+  display: inline-block;
+  transition: transform var(--duration-base) var(--ease-standard), color var(--duration-base) var(--ease-standard);
+}
+.pathwayStep:hover .pathwayStepNum {
+  transform: scale(1.15);
+  color: var(--color-secondary-400);
+}
+.pathwayImage {
+  overflow: hidden;
+}
+.pathwayImage img {
+  transition: transform var(--duration-slow) var(--ease-standard);
+}
+.pathwayImage:hover img {
+  transform: scale(1.06);
+}
+
+/* ---- About Us photo — a gentle lift on hover, matches the card treatment
+   used elsewhere without needing a full Card wrapper. */
+.aboutImage {
+  transition: transform var(--duration-slow) var(--ease-standard), box-shadow var(--duration-slow) var(--ease-standard);
+}
+.aboutImage:hover {
+  transform: translateY(-4px) scale(1.015);
+  box-shadow: var(--shadow-lg);
+}
+
+/* ---- Partner logos — grayscale at rest, colour + lift on hover ---------- */
+.partnerLogo {
+  height: 40px;
+  object-fit: contain;
+  filter: grayscale(1) brightness(2);
+  opacity: 0.75;
+  transition: filter var(--duration-base) var(--ease-standard), opacity var(--duration-base) var(--ease-standard), transform var(--duration-base) var(--ease-standard);
+}
+.partnerLogo:hover {
+  filter: none;
+  opacity: 1;
+  transform: translateY(-2px) scale(1.04);
+}
+
+/* ---- CTA band — a slow, ambient gradient drift behind the closing pitch,
+   restrained enough to read as "alive" rather than distracting. */
+.ctaBand {
+  background: linear-gradient(120deg, var(--color-primary-700), var(--color-primary-500), var(--color-primary-700));
+  background-size: 200% 200%;
+  animation: cta-drift 10s ease-in-out infinite;
+  border-radius: var(--radius-xl);
+  padding: var(--space-12) var(--space-6);
+  text-align: center;
+  color: var(--text-on-primary);
+  position: relative;
+  overflow: hidden;
+}
+@keyframes cta-drift {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+.ctaButton {
+  display: inline-flex;
+  min-height: 52px;
+  align-items: center;
+  padding: 0 var(--space-6);
+  background: var(--surface-raised);
+  color: var(--color-primary-800);
+  border-radius: var(--radius-md);
+  font-weight: var(--font-weight-semibold);
+  transition: transform var(--duration-fast) var(--ease-standard), box-shadow var(--duration-fast) var(--ease-standard);
+}
+.ctaButton:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: var(--shadow-lg);
+  text-decoration: none;
+}
+
+/* Link-styled CTAs — real <a> elements (not <button>) since these always
+   navigate to another page/section; nesting the shared Button component
+   (a real <button>) inside an <a> would be invalid HTML. Same visual
+   treatment as Button's secondary/ghost variants. */
+.linkButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: var(--touch-target-min);
+  padding: 0 var(--space-4);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  border-radius: var(--radius-md);
+  border: var(--border-width-thin) solid transparent;
+  transition: background-color var(--duration-fast) var(--ease-standard), border-color var(--duration-fast) var(--ease-standard), transform var(--duration-fast) var(--ease-standard);
+}
+.linkButtonSecondary {
+  background: var(--color-secondary-400);
+  color: var(--text-on-secondary);
+}
+.linkButtonSecondary:hover {
+  background: var(--color-secondary-600);
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+.linkButtonGhost {
+  background: transparent;
+  color: var(--color-primary-600);
+  border-color: var(--border-default);
+}
+.linkButtonGhost:hover {
+  background: var(--color-primary-50);
+  border-color: var(--color-primary-300);
+  text-decoration: none;
+  transform: translateY(-1px);
+}

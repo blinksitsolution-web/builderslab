@@ -1,0 +1,24 @@
+.spinner {
+  animation: spin 0.8s linear infinite;
+}
+.sm {
+  width: 16px;
+  height: 16px;
+}
+.md {
+  width: 24px;
+  height: 24px;
+}
+.lg {
+  width: 40px;
+  height: 40px;
+}
+.track {
+  stroke: currentColor;
+  opacity: 0.2;
+}
+.head {
+  stroke: currentColor;
+  stroke-dasharray: 62.8;
+  stroke-dashoffset: 47;
+}

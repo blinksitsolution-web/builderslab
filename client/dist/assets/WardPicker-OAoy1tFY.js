@@ -1,0 +1,1 @@
+import{j as r,c as l}from"./index-N18Bd-T3.js";import{F as o}from"./FormField-CvSnQEeb.js";function u({wards:n,selectedId:i,onChange:t,label:a="Ward"}){return n.length===0?null:r.jsx(o,{label:a,children:r.jsx(l,{value:i||"",onChange:e=>t(e.target.value),children:n.map(e=>r.jsx("option",{value:e.id,children:e.name},e.id))})})}export{u as W};

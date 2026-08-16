@@ -1,0 +1,95 @@
+.btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  font-family: var(--font-body);
+  font-weight: var(--font-weight-semibold);
+  border-radius: var(--radius-md);
+  border: var(--border-width-thin) solid transparent;
+  cursor: pointer;
+  white-space: nowrap;
+  user-select: none;
+  transition: background-color var(--duration-fast) var(--ease-standard), border-color var(--duration-fast) var(--ease-standard),
+    color var(--duration-fast) var(--ease-standard), box-shadow var(--duration-fast) var(--ease-standard), transform var(--duration-fast) var(--ease-standard);
+}
+.btn:active:not(:disabled) {
+  transform: translateY(1px);
+}
+.btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+/* Sizes — min-height keeps touch targets >= 44px at the default/lg sizes */
+.sm {
+  min-height: 36px;
+  padding: 0 var(--space-3);
+  font-size: var(--font-size-sm);
+}
+.md {
+  min-height: var(--touch-target-min);
+  padding: 0 var(--space-5);
+  font-size: var(--font-size-base);
+}
+.lg {
+  min-height: 52px;
+  padding: 0 var(--space-6);
+  font-size: var(--font-size-lg);
+}
+
+.fullWidth {
+  width: 100%;
+}
+
+/* Variants */
+.primary {
+  background: var(--color-primary-600);
+  color: var(--text-on-primary);
+  border-color: var(--color-primary-600);
+}
+.primary:hover:not(:disabled) {
+  background: var(--color-primary-700);
+  border-color: var(--color-primary-700);
+}
+
+.secondary {
+  background: var(--color-secondary-400);
+  color: var(--text-on-secondary);
+  border-color: var(--color-secondary-400);
+}
+.secondary:hover:not(:disabled) {
+  background: var(--color-secondary-600);
+  border-color: var(--color-secondary-600);
+}
+
+.ghost {
+  background: transparent;
+  color: var(--color-primary-600);
+  border-color: var(--border-default);
+}
+.ghost:hover:not(:disabled) {
+  background: var(--color-primary-50);
+  border-color: var(--color-primary-300);
+}
+
+.danger {
+  background: var(--color-danger-solid);
+  color: var(--text-on-primary);
+  border-color: var(--color-danger-solid);
+}
+.danger:hover:not(:disabled) {
+  background: var(--color-danger-text);
+  border-color: var(--color-danger-text);
+}
+
+.spinner {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.loadingLabel {
+  opacity: 0;
+}

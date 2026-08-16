@@ -1,0 +1,56 @@
+/* ==========================================================================
+   A deliberately small set of layout utilities — not a Tailwind-style
+   utility framework, just the handful of cross-cutting patterns page
+   compositions need that don't belong in any single component's CSS
+   module (responsive content grids, a ghost-button-on-dark-background
+   override for use inside Hero).
+   ========================================================================== */
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+}
+@media (min-width: 768px) {
+  .grid-2 {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+}
+@media (min-width: 768px) {
+  .grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 1024px) {
+  .grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Ghost buttons default to a light background; on Hero's dark gradient
+   they need light text/border instead. */
+.on-dark {
+  color: var(--text-on-primary) !important;
+  border-color: rgba(255, 255, 255, 0.4) !important;
+}
+.on-dark:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-color: rgba(255, 255, 255, 0.7) !important;
+}
+
+/* Hides page chrome (Ward picker, buttons, nav) when printing a
+   Certificate or Transcript via window.print() — same convention as
+   legacy dashboard.html's .no-print, added here since AppShell's own
+   nav/topbar has no print handling of its own (Phase 22). */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}
+

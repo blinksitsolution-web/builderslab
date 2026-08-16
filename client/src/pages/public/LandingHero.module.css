@@ -1,0 +1,233 @@
+.hero {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(165deg, var(--color-primary-800), var(--color-primary-600));
+  color: var(--text-on-primary);
+}
+.pattern {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  background-size: 32px 32px;
+  animation: grid-drift 40s linear infinite;
+}
+@keyframes grid-drift {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 128px 128px;
+  }
+}
+.inner {
+  position: relative;
+  z-index: 1;
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+  padding: var(--space-16) var(--space-4);
+  display: grid;
+  gap: var(--space-10);
+}
+@media (min-width: 1024px) {
+  .inner {
+    grid-template-columns: 1.1fr 1fr;
+    align-items: center;
+    padding: var(--space-20) var(--space-6);
+  }
+}
+
+.content {
+  animation: fade-in var(--duration-slow) var(--ease-decelerate) both;
+}
+
+.eyebrow {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: var(--letter-spacing-wide);
+  color: var(--color-secondary-300);
+  margin-bottom: var(--space-3);
+}
+
+.title {
+  color: var(--text-on-primary);
+  font-size: var(--font-size-3xl);
+  margin-bottom: var(--space-4);
+}
+@media (min-width: 1024px) {
+  .title {
+    font-size: var(--font-size-4xl);
+  }
+}
+.title :global(.accent) {
+  color: var(--color-secondary-300);
+}
+
+.lead {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: var(--font-size-lg);
+  line-height: var(--line-height-relaxed);
+  max-width: 56ch;
+  margin-bottom: var(--space-6);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-bottom: var(--space-8);
+}
+.primaryCta {
+  display: inline-flex;
+  align-items: center;
+  min-height: 52px;
+  padding: 0 var(--space-6);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-on-secondary);
+  background: var(--color-secondary-400);
+  border-radius: var(--radius-md);
+  transition: background-color var(--duration-fast) var(--ease-standard), transform var(--duration-fast) var(--ease-standard), box-shadow var(--duration-fast) var(--ease-standard);
+  animation: cta-glow 2.8s ease-in-out infinite;
+}
+.primaryCta:hover {
+  background: var(--color-secondary-600);
+  text-decoration: none;
+  transform: translateY(-2px);
+  animation-play-state: paused;
+  box-shadow: 0 0 0 6px rgba(226, 129, 42, 0.22);
+}
+@keyframes cta-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(226, 129, 42, 0.35);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(226, 129, 42, 0);
+  }
+}
+.secondaryCta {
+  display: inline-flex;
+  align-items: center;
+  min-height: 52px;
+  padding: 0 var(--space-6);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-on-primary);
+  border: var(--border-width-thin) solid rgba(255, 255, 255, 0.4);
+  border-radius: var(--radius-md);
+  transition: background-color var(--duration-fast) var(--ease-standard), border-color var(--duration-fast) var(--ease-standard);
+}
+.secondaryCta:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+}
+.secondaryCtaArrow {
+  display: inline-block;
+  margin-left: var(--space-2);
+  transition: transform var(--duration-fast) var(--ease-standard);
+}
+.secondaryCta:hover .secondaryCtaArrow {
+  transform: translateX(4px);
+}
+
+.stats {
+  display: flex;
+  gap: var(--space-8);
+  flex-wrap: wrap;
+}
+.statCell {
+  animation: slide-in-up var(--duration-slow) var(--ease-decelerate) both;
+}
+.statNum {
+  display: block;
+  font-family: var(--font-display);
+  font-size: var(--font-size-2xl);
+  color: var(--text-on-primary);
+}
+.statLbl {
+  font-size: var(--font-size-xs);
+  color: rgba(255, 255, 255, 0.7);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wide);
+}
+
+.panel {
+  background: rgba(16, 27, 51, 0.55);
+  border: var(--border-width-thin) solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4);
+  backdrop-filter: blur(6px);
+  animation: slide-in-up var(--duration-slow) var(--ease-decelerate) both;
+}
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: var(--space-2) var(--space-2);
+  font-size: var(--font-size-sm);
+  border-bottom: var(--border-width-thin) solid rgba(255, 255, 255, 0.1);
+  animation: fade-in var(--duration-slow) var(--ease-decelerate) both;
+}
+.row:last-child {
+  border-bottom: none;
+}
+.dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-full);
+  margin-right: var(--space-2);
+}
+.dotOpen {
+  background: var(--color-accent-500);
+}
+.dotClosed {
+  background: rgba(255, 255, 255, 0.35);
+}
+
+/* ---- Scroll cue — a quiet invitation to keep going, echoing the hero's
+   blueprint-grid motif with a simple drawn chevron rather than an icon
+   font/asset. Bounces gently; collapses to static under reduced motion
+   via styles/motion.css's global override. */
+.scrollCue {
+  position: absolute;
+  left: 50%;
+  bottom: var(--space-6);
+  transform: translateX(-50%);
+  z-index: 1;
+  width: 32px;
+  height: 32px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+@media (min-width: 768px) {
+  .scrollCue {
+    display: flex;
+  }
+}
+.scrollCue span {
+  display: block;
+  width: 12px;
+  height: 12px;
+  border-right: 2px solid rgba(255, 255, 255, 0.6);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.6);
+  transform: rotate(45deg);
+  animation: scroll-cue-bounce 1.8s ease-in-out infinite;
+}
+.scrollCue:hover span {
+  border-color: var(--color-secondary-300);
+}
+@keyframes scroll-cue-bounce {
+  0%,
+  100% {
+    transform: rotate(45deg) translate(0, 0);
+    opacity: 0.6;
+  }
+  50% {
+    transform: rotate(45deg) translate(6px, 6px);
+    opacity: 1;
+  }
+}

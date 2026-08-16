@@ -1,0 +1,26 @@
+.wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--text-secondary);
+}
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-full);
+  flex: none;
+}
+.positive {
+  background: var(--color-success-solid);
+}
+.neutral {
+  background: var(--color-neutral-400);
+}
+.caution {
+  background: var(--color-warning-solid);
+}
+.critical {
+  background: var(--color-danger-solid);
+}

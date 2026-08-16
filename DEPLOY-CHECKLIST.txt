@@ -1,0 +1,25 @@
+Builders' Lab — upload checklist (builderslab.dalijaytechhub.com)
+================================================================
+
+Before upload
+  [ ] client/dist/ exists (pre-built — included in this package)
+  [ ] Excluded server/node_modules and client/node_modules from ZIP
+
+On server (InterServer cPanel)
+  [ ] DNS A record: builderslab -> InterServer IP (Hostinger)
+  [ ] Subdomain added in InterServer cPanel
+  [ ] SSL enabled for builderslab.dalijaytechhub.com
+  [ ] Full project uploaded (client/dist + server/ + images/)
+  [ ] server/data/ and server/uploads/ writable (755 or 775)
+  [ ] server/.env created from .env.production.example
+  [ ] Setup Node.js App: root=server/, startup=src/server.js, Node 20+
+  [ ] Run NPM Install
+  [ ] npm run migrate
+  [ ] npm run seed:admin (first time only)
+  [ ] npm run verify:deploy — no FAIL lines
+  [ ] Restart Node.js app
+  [ ] /api/health and /api/ready return 200
+  [ ] Login at /app/login works
+  [ ] Paystack webhook URL set
+
+Full instructions: DEPLOY-INTERSERVER.md

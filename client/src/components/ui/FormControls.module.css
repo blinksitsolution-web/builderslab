@@ -1,0 +1,59 @@
+.control {
+  width: 100%;
+  min-height: var(--touch-target-min);
+  padding: 0 var(--space-3);
+  font-size: var(--font-size-md);
+  color: var(--text-primary);
+  background: var(--surface-raised);
+  border: var(--border-width-thin) solid var(--border-default);
+  border-radius: var(--radius-md);
+  transition: border-color var(--duration-fast) var(--ease-standard), box-shadow var(--duration-fast) var(--ease-standard);
+}
+.control::placeholder {
+  color: var(--text-muted);
+}
+.control:hover:not(:disabled):not(:focus) {
+  border-color: var(--border-strong);
+}
+.control:focus-visible {
+  outline: none;
+  border-color: var(--border-focus);
+  box-shadow: var(--shadow-focus);
+}
+.control:disabled {
+  background: var(--surface-sunken);
+  color: var(--text-muted);
+  cursor: not-allowed;
+}
+.control.invalid {
+  border-color: var(--color-danger-border);
+}
+.control.invalid:focus-visible {
+  border-color: var(--color-danger-solid);
+  box-shadow: 0 0 0 3px rgba(214, 69, 69, 0.2);
+}
+
+.textarea {
+  min-height: 96px;
+  padding-top: var(--space-2);
+  padding-bottom: var(--space-2);
+  resize: vertical;
+  line-height: var(--line-height-normal);
+}
+
+.selectWrap {
+  position: relative;
+}
+.select {
+  appearance: none;
+  padding-right: var(--space-8);
+  cursor: pointer;
+}
+.selectIcon {
+  position: absolute;
+  right: var(--space-3);
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: var(--text-muted);
+}

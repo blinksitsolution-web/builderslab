@@ -1,0 +1,21 @@
+.shell {
+  display: flex;
+  min-height: 100vh;
+  background: var(--surface-page);
+}
+.main {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* A printed Certificate/Transcript should show only the document itself,
+   not the app chrome around it — same as legacy dashboard.html's own
+   .no-print on its header/sidebar (Phase 22). */
+@media print {
+  .shell > aside,
+  .main > header {
+    display: none !important;
+  }
+}

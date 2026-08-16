@@ -1,0 +1,37 @@
+# Dependencies
+server/node_modules/
+client/node_modules/
+
+# Environment secrets — never commit
+server/.env
+
+# Database — live data, never commit
+server/data/builderslab.db
+server/data/builderslab.db-shm
+server/data/builderslab.db-wal
+server/data/backups/
+
+# User uploads — real content, never commit
+server/uploads/avatars/*
+server/uploads/projects/*
+server/uploads/assignments/*
+server/uploads/notes/*
+server/uploads/topics/*
+server/uploads/branding/*
+server/uploads/campuses/*
+server/uploads/sponsor-bulk-registration/*
+!server/uploads/**/.gitkeep
+
+# Logs and temp files
+server/test-batch-run.log
+server/test-batch-summary.json
+server/test-full-audit-final.txt
+server/test-full-audit-output.txt
+server/test-full-output.txt
+server/test-err-*.log
+server/test-out-*.log
+server/.tmp-test/
+
+# OS
+.DS_Store
+Thumbs.db

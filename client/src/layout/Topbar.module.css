@@ -1,0 +1,110 @@
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-sticky);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  height: var(--topbar-height);
+  padding: 0 var(--space-4);
+  background: var(--surface-raised);
+  border-bottom: var(--border-width-thin) solid var(--border-subtle);
+}
+@media (min-width: 1024px) {
+  .topbar {
+    padding: 0 var(--space-6);
+  }
+}
+
+.left,
+.right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.navToggle {
+  display: inline-flex;
+}
+@media (min-width: 1024px) {
+  .navToggle {
+    display: none;
+  }
+}
+
+.brandMobile {
+  font-family: var(--font-display);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-primary-800);
+  text-decoration: none;
+}
+.brandMobile:hover {
+  text-decoration: underline;
+}
+@media (min-width: 1024px) {
+  .brandMobile {
+    display: none;
+  }
+}
+
+.bellWrap {
+  position: relative;
+}
+.bellDot {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-full);
+  background: var(--color-secondary-400);
+  border: 2px solid var(--surface-raised);
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  min-height: var(--touch-target-min);
+}
+.profile:hover {
+  background: var(--color-neutral-100);
+}
+.avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-full);
+  background: var(--color-primary-100);
+  color: var(--color-primary-700);
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-sm);
+  flex: none;
+}
+.profileMeta {
+  display: none;
+  flex-direction: column;
+  line-height: 1.2;
+  text-align: left;
+}
+@media (min-width: 640px) {
+  .profileMeta {
+    display: flex;
+  }
+}
+.profileName {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--text-primary);
+}
+.profileRole {
+  font-size: var(--font-size-xs);
+  color: var(--text-muted);
+  text-transform: capitalize;
+}
